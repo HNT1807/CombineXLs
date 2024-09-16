@@ -4,7 +4,7 @@ import io
 import uuid
 import base64
 
-st.set_page_config(page_title="COMBINE XLs", layout="wide")
+st.set_page_config(page_title="COMBINE XLs AND KEEP FULLS", layout="wide")
 
 # Custom CSS for styling
 st.markdown("""
