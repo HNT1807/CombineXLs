@@ -42,7 +42,7 @@ def check_empty_values(df, filename):
     empty_t_values = df.loc[non_empty_rows, df.columns[19]].isna()
     if empty_t_values.any():
         st.error(
-            f"Error: File '{filename}' has {empty_t_values.sum()} empty value(s) in column T for non-empty rows. Processing stopped.")
+            f"Error: File '{filename}' has {empty_t_values.sum()} empty value(s) in column T for non-empty rows. Processing stopped.") 
         return False
     return True
 
