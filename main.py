@@ -49,18 +49,19 @@ def check_empty_values(df, filename):
 
 def process_excel_files(uploaded_files):
     combined_df = None
-    for i, file in enumerate(uploaded_files):
+    for file in uploaded_files:
         df = pd.read_excel(file)
 
         if not check_empty_values(df, file.name):
             return None
 
-        if i == 0:
-            combined_df = df
-        else:
-            combined_df = pd.concat([combined_df, df.iloc[1:]], ignore_index=True)
+        # Filter rows containing "Full" in column T (index 19)
+        df_full = df[df.iloc[:, 19].astype(str).str.contains("Full", case=False, na=False)]
 
-    combined_df = combined_df[combined_df.iloc[:, 19].astype(str).str.contains("Full", case=False, na=False)]
+        if combined_df is None:
+            combined_df = df_full
+        else:
+            combined_df = pd.concat([combined_df, df_full], ignore_index=True)
 
     return combined_df
 
