@@ -74,7 +74,7 @@ def get_binary_file_downloader_html(df):
 
 
 # Main app layout
-st.markdown("<h1 class='main-title'>COMBINE XLs</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>COMBINE XLs AND KEEP FULLS</h1>", unsafe_allow_html=True)
 
 # Create a centered column
 col1, col2, col3 = st.columns([1, 2, 1])
